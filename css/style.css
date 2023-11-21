@@ -20,15 +20,14 @@
 
 .btn-niv {
   text-decoration: none;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .navbar {
   font-family: 'Nabla', sans-serif;
   font-size: 2em;
 
-}
-.bto {
-  color: #008F39;
 }
 
 .btn-tipo {
@@ -81,17 +80,6 @@
   border-radius: 5px;
 
 }
-
-.game-board {
-
-  grid-template-columns: repeat(4, 50px);
-  /* 4 celdas de 50px cada una */
-  gap: 10px;
-  /* Espacio entre las celdas */
-}
-
-
-
 
 /*Pagina niveles*/
 
@@ -184,4 +172,16 @@
   width: 6em;
   height: 6em;
   border: 0.2em solid white;
+}
+
+/*Pagina Juego*/
+
+#coloresElegidos {
+  margin-top: 5%;
+}
+.squareColors{
+  width: 3em;
+  height: 3em;
+  border: 0.1em solid white;
+  display: inline-block;
 }
