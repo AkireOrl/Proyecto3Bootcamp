@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Nabla&display=swap');
+
+
+.homebody {
+  font-family: 'Nabla', sans-serif;
+  display: flex;
+  height: 90vh;
+
+  /* Medium devices (tablets, 768px and up)*/
+  @media (min-width: 768px) {
+    font-size: 2em !important;
+  }
+
+}
+
+
+#enlace {
+  text-decoration: none;
+}
+
+.btn-niv {
+  text-decoration: none;
+}
+
+.navbar {
+  font-family: 'Nabla', sans-serif;
+  font-size: 2em;
+
+}
+.bto {
+  color: #008F39;
+}
+
+.btn-tipo {
+  font-family: 'Nabla', sans-serif !important;
+  font-size: 1.5em !important;
+
+}
+
+.btn-tipo:hover {
+  font-family: 'Nabla', sans-serif !important;
+  font-size: 1.5em !important;
+  border: 2px solid #FFD214;
+
+}
+
+.gameButton {
+  font-family: 'Nabla', sans-serif !important;
+  font-size: 1.5em !important;
+
+}
+
+.logo {
+  font-size: 5em;
+  font-family: 'Nabla', sans-serif;
+}
+
+.form-label {
+  font-family: 'Nabla', sans-serif;
+  font-size: 1.5em !important;
+
+}
+.btn-outline-secondary {
+  background-color: #fff!important;
+  width: 3em;
+  height: 2em;
+  font-weight: 700;
+  
+}
+
+.border-button {
+  font-family: 'Nabla', sans-serif !important;
+  font-size: 1.5em !important;
+  margin-top: 15%;
+  border: 2px solid #FFD214 !important;
+  border-radius: 5px;
+}
+
+.border-button:hover {
+  border: 2px solid #FFD214;
+  border-radius: 5px;
+
+}
+
+.game-board {
+
+  grid-template-columns: repeat(4, 50px);
+  /* 4 celdas de 50px cada una */
+  gap: 10px;
+  /* Espacio entre las celdas */
+}
+
+
+
+
+/*Pagina niveles*/
+
+.nivelesbody {
+  height: 98%;
+  margin: 0;
+  overflow-y: hidden;
+
+  @media (min-width: 768px) {
+    font-size: 2em !important;
+  }
+}
+
+
+.juegobody {
+  height: 98%;
+  margin: 0;
+  overflow-y: hidden;
+
+  @media (min-width: 768px) {
+    font-size: 2em !important;
+  }
+}
+
+#nombre {
+  font-size: 1.5em;
+}
+
+.contenido {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+}
+
+/* Pag colores*/
+
+.escoge {
+  font-family: 'Nabla', sans-serif;
+
+  @media (min-width: 768px) {
+    font-size: 2em !important;
+  }
+}
+
+.btn-color {
+  display: inline-block;
+  font-size: 1.5em;
+  color: #FFD214;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.5s;
+  text-decoration: none;
+}
+
+.btn-color:hover {
+  font-size: 1.5em;
+  text-decoration: none;
+  border: 1px solid color #FFD214;
+  box-shadow: 0 0 5px #FFD214;
+}
+
+
+.btnEscogido {
+  color: white !important;
+}
+.beginnerRow {
+  margin-top: 2em;
+}
+.colorpicker {
+  width: 3em;
+  height: 3em;
+  display: flex;
+  margin-left: 1em;
+  margin-right: 1em;
+ 
+}
+.titulo {
+  font-family: 'Nabla', sans-serif !important;
+  font-size: 1.5em !important;
+  margin-top: 2em;
+}
+.square{
+  width: 6em;
+  height: 6em;
+  border: 0.2em solid white;
+}
