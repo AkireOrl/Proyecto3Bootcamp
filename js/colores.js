@@ -19,6 +19,6 @@ document.querySelectorAll('.colorpicker').forEach(colorPicker => {
         }
         //combinationColors.push(colorPicker.value);
 
-        sessionStorage.setItem('currentColor', combinationColors);
+        sessionStorage.setItem('currentColor', JSON.stringify(combinationColors));
     });
 });
