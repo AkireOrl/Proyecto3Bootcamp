@@ -179,7 +179,8 @@
 #coloresElegidos {
   margin-top: 5%;
 }
-.squareColors{
+
+.colors{
   width: 3em;
   height: 3em;
   border: 0.1em solid white;
@@ -191,15 +192,27 @@
   border: 0.1em solid white;
   display: inline-block;
 }
-.squareColors{
-  width: 3em;
-  height: 3em;
+
+/*Tablero*/
+.squarePlay{
+  width: 2em;
+  height: 2em;
   border: 0.1em solid white;
-  display: inline-block;
+  display: block;
+  background-color: #605e5e;
 }
-.squareColors{
-  width: 3em;
-  height: 3em;
-  border: 0.1em solid white;
-  display: inline-block;
+.row {
+  display: flex;
 }
+
+.box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Nuevo intento*/
