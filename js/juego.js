@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Recuperar los colores almacenados en sessionStorage
     let storedColors = sessionStorage.getItem('currentColor');
     console.log(storedColors);
+    
     if (storedColors) {
         // Convertir los colores almacenados de formato JSON a un array de JavaScript
         let combinationColors = JSON.parse(storedColors);
@@ -14,43 +15,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (squareElement) {
                 squareElement.style.backgroundColor = color;
+                
             }
+            return squareElement;
         });
+        console.log("hasta aquí funciona");
+        
     }
+    
 });
 
+// let combinacionInicial = squareElement;
+// console.log(combinacionInicial);
 
 
-function getBackgroundColor(element) {
-    let color = element.style.backgroundColor;
+
+
+
+
+
+
+
+
+
+
+// function getBackgroundColor(element) {
    
-    if (!color) {
-       if (window.getComputedStyle) {
-         color = window.getComputedStyle(element).backgroundColor;
-       } else if (element.currentStyle) {
-         color = element.currentStyle.backgroundColor;
-       }
-    }
+//     let color = element.style.backgroundColor;
+    
+//     if (!color) {
+//        if (window.getComputedStyle) {
+//          color = window.getComputedStyle(element).backgroundColor;
+//        } else if (element.currentStyle) {
+//          color = element.currentStyle.backgroundColor;
+//        }
+//     }
+//     //console.log("el codigo hasta aquí no se para porque muestra esto")
+//     return color;
+//    }
    
-    return color;
-   }
+//    function changeBackgroundColor(elements, color) {
+//     for (let i = 0; i < elements.length; i++) {
+//         elements[i].style.backgroundColor = color;
+//         console.log(elements.lenght);
+//     }
+//    }
    
-   function changeBackgroundColor(elements, color) {
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].style.backgroundColor = color;
-    }
-   }
+//    function handleClick(event) {
+//     let sourceElement = event.currentTarget;
+//     let destinationElements = document.getElementsByClassName("squarePlay");
    
-   function handleClick(event) {
-    var sourceElement = event.currentTarget;
-    var destinationElements = document.getElementsByClassName("squarePlay");
+//     let sourceColor = getBackgroundColor(sourceElement);
+//     changeBackgroundColor(destinationElements, sourceColor);
+//    }
    
-    var sourceColor = getBackgroundColor(sourceElement);
-    changeBackgroundColor(destinationElements, sourceColor);
-   }
-   
-   // asociar la función handleClick al evento click del elemento con id sourceElement
-   var squareColors = document.getElementsByClassName("squareColors");
-   for (var i = 0; i < squareColors.length; i++) {
-       squareColors[i].addEventListener("click", handleClick);
-   }
+//    // asociar la función handleClick al evento click del elemento con id sourceElement
+//    let squareColors = document.getElementsByClassName("squareColors");
+//    for (let i = 0; i < squareColors.length; i++) {
+//        squareColors[i].addEventListener("click", handleClick);
+//    }

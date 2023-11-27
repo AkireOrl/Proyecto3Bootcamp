@@ -215,4 +215,16 @@
   align-items: center;
 }
 
-/*Nuevo intento*/
+.squareCheck{
+
+}
+.squareCheckIn {
+  width: 0.3em;
+  height: 0.3em;
+  border-radius: 50%;
+  border: 1px solid white;
+  top: 0.2em;
+  bottom: 0.2em;
+}
+
+
