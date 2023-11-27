@@ -41,9 +41,9 @@ let divJuego3 = document.getElementById("P3");
 let divJuego4 = document.getElementById("P4");
 let divsJuegoArray = [divJuego1, divJuego2, divJuego3, divJuego4];
 console.log(divsJuegoArray);
-for (let i = 0; i < divsJuegoArray.lenght; i++){
-    
- divsJuegoArray[i].addEventListener('click', function(){
+
+for (let i = 0; i < divsJuegoArray.length; i++){
+     divsJuegoArray[i].addEventListener('click', function(){
          console.log("Voy por aquí")
         let color = sessionStorage.getItem('color');
         divsJuegoArray[i].style.backgroundColor = color;
