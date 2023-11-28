@@ -1,3 +1,4 @@
+//Creo un array con los colores escogidos
 let div1 = document.getElementById("J1");
 let div2 = document.getElementById("J2");
 let div3 = document.getElementById("J3");
@@ -5,7 +6,7 @@ let div4 = document.getElementById("J4");
 
 let divsArray = [div1, div2, div3, div4];
 //console.log(divsArray);
-
+//Asigno los colores por orden de elección en la muestra
 let storedColors = sessionStorage.getItem('currentColor');
 let combinationColors = JSON.parse(storedColors);
 
@@ -14,6 +15,7 @@ let combinationColors = JSON.parse(storedColors);
     div3.style.backgroundColor = combinationColors[2];
     div4.style.backgroundColor = combinationColors[3];
 
+//Almaceno en session segun evento onclick
 div1.addEventListener('click', function() {
     let color1 =  div1.style.backgroundColor;
     sessionStorage.setItem('color', color1);
@@ -35,20 +37,66 @@ div4.addEventListener('click', function() {
     //console.log(color4);
 });
 
+//Declaro variantes de el primer intento y creo array para asignarle colores por eveno click
+let colorArray = [];
 let divJuego1 = document.getElementById("P1");
 let divJuego2 = document.getElementById("P2");
 let divJuego3 = document.getElementById("P3");
 let divJuego4 = document.getElementById("P4");
 let divsJuegoArray = [divJuego1, divJuego2, divJuego3, divJuego4];
-console.log(divsJuegoArray);
-
-for (let i = 0; i < divsJuegoArray.length; i++){
+//console.log(divsJuegoArray);
+//Cojo colores de muestra y se lo doy al primer intento
+for (let i = 0; i < 4; i++){
      divsJuegoArray[i].addEventListener('click', function(){
-         console.log("Voy por aquí")
+         //console.log("Voy por aquí")
         let color = sessionStorage.getItem('color');
         divsJuegoArray[i].style.backgroundColor = color;
+        //creo un array con los colores del primer intento
+        colorArray.push(color);
+    
+        // Guardar el array colorArray en sessionStorage
+        sessionStorage.setItem('colorArray', JSON.stringify(colorArray));
+        console.log(colorArray);
+       
 });
 }
+let retrievedColorArray = JSON.parse(sessionStorage.getItem('[colorArray]'));
+//console.log(retrievedColorArray);
+//console.log(colorArray);
+//let primerIntento = [colorArray];
+//console.log(primerIntento);
+
+//Combinación ganadora barajando el array divsArray que viene los colores elegidos en la page colores.html
+let divsArrayE = [div1, div2, div3, div4]
+let randomDivsArray = [];
+
+const correctAnswer = () => {
+
+    divsArrayE.sort(() => Math.random() - 0.5);
+
+    for (i = 0; i < 4; i++) {
+        randomDivsArray.push(divsArrayE[i]);
+        console.log(divsArrayE);
+    }
+}
+
+correctAnswer();
+console.log(randomDivsArray);
+console.log(retrievedColorArray);
+
+// //comparar 
+// function compareColors() {
+//     if (randomDivsArray == colorArray) {
+//         alert("Ganaste!");
+//         } else {
+//             alert("No has ganado! Intenta nuevamente.");
+//             };
+//     console.log("voy por aquí")
+// };
+
+
+
+
 // divJuego1.addEventListener('click', function(){
 //     let color = sessionStorage.getItem('color');
 //     divJuego1.style.backgroundColor = color;
