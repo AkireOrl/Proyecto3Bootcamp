@@ -52,7 +52,10 @@ for (let i = 0; i < 4; i++){
         let color = sessionStorage.getItem('color');
         divsJuegoArray[i].style.backgroundColor = color;
         //creo un array con los colores del primer intento
-        colorArray.push(color);
+        if(colorArray.length < 4){
+            colorArray.push(color);
+            console.log(colorArray);
+        }
     
         // Guardar el array colorArray en sessionStorage
         sessionStorage.setItem('colorArray', JSON.stringify(colorArray));
@@ -60,14 +63,17 @@ for (let i = 0; i < 4; i++){
        
 });
 }
-let retrievedColorArray = JSON.parse(sessionStorage.getItem('[colorArray]'));
-//console.log(retrievedColorArray);
+
+let recogerColorArray = sessionStorage.getItem('colorArray');
+let colorArrayIntento = JSON.stringify(recogerColorArray);
+console.log(colorArrayIntento);
+
 //console.log(colorArray);
 //let primerIntento = [colorArray];
 //console.log(primerIntento);
 
 //Combinación ganadora barajando el array divsArray que viene los colores elegidos en la page colores.html
-let divsArrayE = [div1, div2, div3, div4]
+let divsArrayE = [div1, div2, div3, div4];
 let randomDivsArray = [];
 
 const correctAnswer = () => {
@@ -82,17 +88,17 @@ const correctAnswer = () => {
 
 correctAnswer();
 console.log(randomDivsArray);
-console.log(retrievedColorArray);
 
-// //comparar 
-// function compareColors() {
-//     if (randomDivsArray == colorArray) {
-//         alert("Ganaste!");
-//         } else {
-//             alert("No has ganado! Intenta nuevamente.");
-//             };
-//     console.log("voy por aquí")
-// };
+
+//comparar 
+function compareColors() {
+    if (colorArrayIntento == randomDivsArray ) {
+        alert("Ganaste!");
+        } else {
+            alert("No has ganado! Intenta nuevamente.");
+            };
+    console.log("voy por aquí")
+};
 
 
 
