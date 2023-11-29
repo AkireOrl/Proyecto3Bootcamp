@@ -38,7 +38,7 @@ div4.addEventListener('click', function() {
 });
 
 //Declaro variantes de el primer intento y creo array para asignarle colores por eveno click
-let colorArray = [];
+let colorArray = ["","","",""];
 let divJuego1 = document.getElementById("P1");
 let divJuego2 = document.getElementById("P2");
 let divJuego3 = document.getElementById("P3");
@@ -46,16 +46,15 @@ let divJuego4 = document.getElementById("P4");
 let divsJuegoArray = [divJuego1, divJuego2, divJuego3, divJuego4];
 //console.log(divsJuegoArray);
 //Cojo colores de muestra y se lo doy al primer intento
+
+
 for (let i = 0; i < 4; i++){
      divsJuegoArray[i].addEventListener('click', function(){
          //console.log("Voy por aquí")
         let color = sessionStorage.getItem('color');
         divsJuegoArray[i].style.backgroundColor = color;
         //creo un array con los colores del primer intento
-        if(colorArray.length < 4){
-            colorArray.push(color);
-            console.log(colorArray);
-        }
+       colorArray[i] = color;
     
         // Guardar el array colorArray en sessionStorage
         sessionStorage.setItem('colorArray', JSON.stringify(colorArray));
@@ -64,16 +63,13 @@ for (let i = 0; i < 4; i++){
 });
 }
 
-let recogerColorArray = sessionStorage.getItem('colorArray');
-let colorArrayIntento = JSON.stringify(recogerColorArray);
-console.log(colorArrayIntento);
 
 //console.log(colorArray);
 //let primerIntento = [colorArray];
 //console.log(primerIntento);
 
 //Combinación ganadora barajando el array divsArray que viene los colores elegidos en la page colores.html
-let divsArrayE = [div1, div2, div3, div4];
+let divsArrayE = [combinationColors[0], combinationColors[1], combinationColors[2],combinationColors[3]];
 let randomDivsArray = [];
 
 const correctAnswer = () => {
@@ -87,18 +83,24 @@ const correctAnswer = () => {
 }
 
 correctAnswer();
-console.log(randomDivsArray);
+console.log(randomDivsArray, "Soy la solución");
 
 
 //comparar 
 function compareColors() {
-    if (colorArrayIntento == randomDivsArray ) {
+    let recogerColorArray = sessionStorage.getItem('colorArray');
+    if (recogerColorArray == randomDivsArray ) {
+
         alert("Ganaste!");
         } else {
             alert("No has ganado! Intenta nuevamente.");
             };
     console.log("voy por aquí")
 };
+
+
+
+
 
 
 
