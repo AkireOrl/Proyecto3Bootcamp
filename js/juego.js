@@ -15,25 +15,46 @@ let combinationColors = JSON.parse(storedColors);
     div3.style.backgroundColor = combinationColors[2];
     div4.style.backgroundColor = combinationColors[3];
 
+    //Cambio de rgb to hex al recoger colores
+    function toHex(color) {
+        if (color.substr(0, 1) === '#') {
+            return color;
+        }
+        let digits = /(.*?)rgb\((\d+),\s*(\d+),\s*(\d+)\)/i.exec(color);
+    
+        let red = parseInt(digits[2]);
+        let green = parseInt(digits[3]);
+        let blue = parseInt(digits[4]);
+    
+        let hex = '#' + ('0' + red.toString(16)).slice(-2) +
+                    ('0' + green.toString(16)).slice(-2) +
+                    ('0' + blue.toString(16)).slice(-2);
+    
+        return hex;
+    }
 //Almaceno en session segun evento onclick
 div1.addEventListener('click', function() {
     let color1 =  div1.style.backgroundColor;
-    sessionStorage.setItem('color', color1);
-    //console.log(color1);
+    let hexColor1 = toHex(color1);
+    sessionStorage.setItem('color', hexColor1);
+    //console.log(hexColor1);
 });
 div2.addEventListener('click', function() {
     let color2 =  div2.style.backgroundColor;
-    sessionStorage.setItem('color', color2);
-    //console.log(color2);
+    let hexColor2 = toHex(color2);
+    sessionStorage.setItem('color', hexColor2);
+    //console.log(hexColor2);
 });
 div3.addEventListener('click', function() {
     let color3 =  div3.style.backgroundColor;
-    sessionStorage.setItem('color', color3);
+    let hexColor3 = toHex(color3);
+    sessionStorage.setItem('color', hexColor3);
     //console.log(color3);
 });
 div4.addEventListener('click', function() {
     let color4 =  div4.style.backgroundColor;
-    sessionStorage.setItem('color', color4);
+    let hexColor4 = toHex(color4);
+    sessionStorage.setItem('color', hexColor4);
     //console.log(color4);
 });
 
@@ -45,8 +66,9 @@ let divJuego3 = document.getElementById("P3");
 let divJuego4 = document.getElementById("P4");
 let divsJuegoArray = [divJuego1, divJuego2, divJuego3, divJuego4];
 //console.log(divsJuegoArray);
-//Cojo colores de muestra y se lo doy al primer intento
 
+
+//Cojo colores de muestra y se lo doy al primer intento
 
 for (let i = 0; i < 4; i++){
      divsJuegoArray[i].addEventListener('click', function(){
@@ -58,15 +80,12 @@ for (let i = 0; i < 4; i++){
     
         // Guardar el array colorArray en sessionStorage
         sessionStorage.setItem('colorArray', JSON.stringify(colorArray));
-        console.log(colorArray);
-       
+        
+        console.log(colorArray);    
 });
 }
 
 
-//console.log(colorArray);
-//let primerIntento = [colorArray];
-//console.log(primerIntento);
 
 //Combinación ganadora barajando el array divsArray que viene los colores elegidos en la page colores.html
 let divsArrayE = [combinationColors[0], combinationColors[1], combinationColors[2],combinationColors[3]];
@@ -86,21 +105,33 @@ correctAnswer();
 console.log(randomDivsArray, "Soy la solución");
 
 
-//comparar 
+//comparar arrays
+
 function compareColors() {
-    let recogerColorArray = sessionStorage.getItem('colorArray');
-    if (recogerColorArray == randomDivsArray ) {
+    console.log(colorArray);
+    console.log(randomDivsArray);
+
+    if (colorArray === randomDivsArray ) {
 
         alert("Ganaste!");
         } else {
             alert("No has ganado! Intenta nuevamente.");
             };
-    console.log("voy por aquí")
-};
+    console.log("voy por aquí");
+        }
+   
 
 
+//Circulos del check en proceso
 
+let filterArray = colorArray.filter((value, index) => value === randomDivsArray[index]);
 
+if (filterArray.length === colorArray.length) {
+    document.getElementById('C1').style.backgroundColor = 'white';
+    document.getElementById('C2').style.backgroundColor = 'white';
+    document.getElementById('C3').style.backgroundColor = 'white';
+    document.getElementById('C4').style.backgroundColor = 'white';
+}
 
 
 
@@ -182,4 +213,3 @@ function compareColors() {
 //    let squareColors = document.getElementsByClassName("squareColors");
 //    for (let i = 0; i < squareColors.length; i++) {
 //        squareColors[i].addEventListener("click", handleClick);
-//    }

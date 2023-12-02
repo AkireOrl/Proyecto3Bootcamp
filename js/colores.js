@@ -22,3 +22,4 @@ document.querySelectorAll('.colorpicker').forEach(colorPicker => {
         sessionStorage.setItem('currentColor', JSON.stringify(combinationColors));
     });
 });
+
