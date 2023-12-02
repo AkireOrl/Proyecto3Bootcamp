@@ -17,7 +17,7 @@ document.querySelectorAll('.colorpicker').forEach(colorPicker => {
         if (colorPicker.id==="B4") {
             combinationColors[3] = colorPicker.value;
         }
-        //combinationColors.push(colorPicker.value);
+       
 
         sessionStorage.setItem('currentColor', JSON.stringify(combinationColors));
     });

@@ -105,43 +105,6 @@ correctAnswer();
 console.log(randomDivsArray, "Soy la solución");
 
 
-//comparar arrays
-
-// function compareColors() {
-//     console.log(colorArray);
-//     console.log(randomDivsArray);
-
-//     let matchCount = 0; // Variable para contar el número de coincidencias
-
-//     const isEqual = colorArray.every(function(value, index) {
-//         if (value === randomDivsArray[index]) {
-//             matchCount++; // Incrementar la cuenta si hay coincidencia
-//         }
-//         return value === randomDivsArray[index];
-//     });
-
-//     if (isEqual) {
-//         alert("Ganaste!");
-//     } else {
-//         alert("No has ganado! Intenta nuevamente.");
-//     };
-
-//     const squareCheckInElements = document.getElementsByClassName("squareCheckIn");
-
-//     // Cambiar el fondo de los elementos que tienen la clase "squareCheckIn" según el número de coincidencias
-//     for (let i = 0; i < squareCheckInElements.length; i++) {
-//         if (i < matchCount) {
-//             squareCheckInElements[i].style.backgroundColor = "white";
-//         } else {
-//             squareCheckInElements[i].style.backgroundColor = ""; // Restaurar el color original
-//         }
-//     }
-
-//     console.log("voy por aquí");
-// }
-
-
-
 // Intentos 
 
 let attemptCount = 0; // Contador de intentos
@@ -155,16 +118,6 @@ function compareColors() {
         window.location.href = "loser.html";
         return;
     }
-
-    // Comprobar si todos los colores son blancos (esto es, están en el índice 0 del array de colores)
-    // const allColorsWhite = colorArray.every(color => color === 0);
-
-    // if (allColorsWhite) {
-    //     alert("Ganaste!");
-    //     resetGame();
-    // } else {
-    //     alert("No has ganado! Intenta nuevamente.");
-    // }
 
     // Actualizar el fondo de los elementos con la clase "squareCheckIn" según el número de coincidencias
     const squareCheckInElements = document.getElementsByClassName("squareCheckIn");
