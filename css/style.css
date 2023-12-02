@@ -237,3 +237,20 @@
   margin-top: 1.2em;
 
 }
+.winnerbody {
+  background-image: url(https://i.gifer.com/ZGZ4.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+}
+
+.logo2 {
+  font-size: 5em;
+  font-family: 'Nabla', sans-serif;
+}
+.logo3 {
+  font-size: 5em;
+  font-family: 'Nabla', sans-serif;
+}

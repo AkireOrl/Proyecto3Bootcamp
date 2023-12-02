@@ -140,16 +140,6 @@ console.log(randomDivsArray, "Soy la solución");
 //     console.log("voy por aquí");
 // }
 
-//Circulos del check en proceso
-
-let filterArray = colorArray.filter((value, index) => value === randomDivsArray[index]);
-
-if (filterArray.length === colorArray.length) {
-    document.getElementById('C1').style.backgroundColor = 'white';
-    document.getElementById('C2').style.backgroundColor = 'white';
-    document.getElementById('C3').style.backgroundColor = 'white';
-    document.getElementById('C4').style.backgroundColor = 'white';
-}
 
 
 // Intentos 
@@ -160,22 +150,21 @@ const maxAttempts = 10; // Número máximo de intentos permitidos
 function compareColors() {
     attemptCount++; // Incrementar el contador de intentos
 
-    // Si se alcanza el número máximo de intentos, mostrar la alerta de ganador y reiniciar todo
+    // Si se alcanza el número máximo de intentos, viaja a la page losser
     if (attemptCount >= maxAttempts) {
-        alert("Has alcanzado el número máximo de intentos.");
-        resetGame();
+        window.location.href = "loser.html";
         return;
     }
 
     // Comprobar si todos los colores son blancos (esto es, están en el índice 0 del array de colores)
-    const allColorsWhite = colorArray.every(color => color === 0);
+    // const allColorsWhite = colorArray.every(color => color === 0);
 
-    if (allColorsWhite) {
-        alert("Ganaste!");
-        resetGame();
-    } else {
-        alert("No has ganado! Intenta nuevamente.");
-    }
+    // if (allColorsWhite) {
+    //     alert("Ganaste!");
+    //     resetGame();
+    // } else {
+    //     alert("No has ganado! Intenta nuevamente.");
+    // }
 
     // Actualizar el fondo de los elementos con la clase "squareCheckIn" según el número de coincidencias
     const squareCheckInElements = document.getElementsByClassName("squareCheckIn");
@@ -190,4 +179,23 @@ function compareColors() {
     // Actualizar el contador de intentos en el HTML
     const attemptCounterElement = document.getElementsByClassName("attemptCounter")[0];
     attemptCounterElement.textContent = `Intentos restantes: ${maxAttempts - attemptCount}`;
+}
+
+function winner() {
+    const squareCheckInElements = document.getElementsByClassName("squareCheckIn");
+    let gameOver = true;
+
+    for (let i = 0; i < squareCheckInElements.length; i++) {
+        if (squareCheckInElements[i].style.backgroundColor !== "white") {
+            gameOver = false;
+            break;
+        }
+    }
+
+    if (gameOver) {
+        window.location.href = "winner.html"; // Cambia esta URL según el enlace de la página de ganador
+    } else {
+        // Si no se ha completado el juego, proporciona la opción de otro intento
+         alert("Lo siento, aún no has completado el juego. Por favor, inténtalo de nuevo.");
+    }
 }
