@@ -37,25 +37,25 @@ div1.addEventListener('click', function() {
     let color1 =  div1.style.backgroundColor;
     let hexColor1 = toHex(color1);
     sessionStorage.setItem('color', hexColor1);
-    //console.log(hexColor1);
+    console.log(hexColor1);
 });
 div2.addEventListener('click', function() {
     let color2 =  div2.style.backgroundColor;
     let hexColor2 = toHex(color2);
     sessionStorage.setItem('color', hexColor2);
-    //console.log(hexColor2);
+    console.log(hexColor2);
 });
 div3.addEventListener('click', function() {
     let color3 =  div3.style.backgroundColor;
     let hexColor3 = toHex(color3);
     sessionStorage.setItem('color', hexColor3);
-    //console.log(color3);
+    console.log(hexColor3);
 });
 div4.addEventListener('click', function() {
     let color4 =  div4.style.backgroundColor;
     let hexColor4 = toHex(color4);
     sessionStorage.setItem('color', hexColor4);
-    //console.log(color4);
+    console.log(hexColor4);
 });
 
 //Declaro variantes de el primer intento y creo array para asignarle colores por eveno click
@@ -97,7 +97,7 @@ const correctAnswer = () => {
 
     for (i = 0; i < 4; i++) {
         randomDivsArray.push(divsArrayE[i]);
-        console.log(divsArrayE);
+        //console.log(divsArrayE);
     }
 }
 
@@ -107,20 +107,38 @@ console.log(randomDivsArray, "Soy la solución");
 
 //comparar arrays
 
-function compareColors() {
-    console.log(colorArray);
-    console.log(randomDivsArray);
+// function compareColors() {
+//     console.log(colorArray);
+//     console.log(randomDivsArray);
 
-    if (colorArray === randomDivsArray ) {
+//     let matchCount = 0; // Variable para contar el número de coincidencias
 
-        alert("Ganaste!");
-        } else {
-            alert("No has ganado! Intenta nuevamente.");
-            };
-    console.log("voy por aquí");
-        }
-   
+//     const isEqual = colorArray.every(function(value, index) {
+//         if (value === randomDivsArray[index]) {
+//             matchCount++; // Incrementar la cuenta si hay coincidencia
+//         }
+//         return value === randomDivsArray[index];
+//     });
 
+//     if (isEqual) {
+//         alert("Ganaste!");
+//     } else {
+//         alert("No has ganado! Intenta nuevamente.");
+//     };
+
+//     const squareCheckInElements = document.getElementsByClassName("squareCheckIn");
+
+//     // Cambiar el fondo de los elementos que tienen la clase "squareCheckIn" según el número de coincidencias
+//     for (let i = 0; i < squareCheckInElements.length; i++) {
+//         if (i < matchCount) {
+//             squareCheckInElements[i].style.backgroundColor = "white";
+//         } else {
+//             squareCheckInElements[i].style.backgroundColor = ""; // Restaurar el color original
+//         }
+//     }
+
+//     console.log("voy por aquí");
+// }
 
 //Circulos del check en proceso
 
@@ -134,82 +152,42 @@ if (filterArray.length === colorArray.length) {
 }
 
 
+// Intentos 
 
+let attemptCount = 0; // Contador de intentos
+const maxAttempts = 10; // Número máximo de intentos permitidos
 
-// divJuego1.addEventListener('click', function(){
-//     let color = sessionStorage.getItem('color');
-//     divJuego1.style.backgroundColor = color;
-// });
+function compareColors() {
+    attemptCount++; // Incrementar el contador de intentos
 
-// let pintaDivs = document.addEventListener('DOMContentLoaded', () => {
-//     // Recuperar los colores almacenados en sessionStorage
-//     let storedColors = sessionStorage.getItem('currentColor');
-//     console.log(storedColors);
-    
-//     if (storedColors) {
-//         // Convertir los colores almacenados de formato JSON a un array de JavaScript
-//         let combinationColors = JSON.parse(storedColors);
-//         console.log("estoy aqui");
-//         // Asignar los colores recuperados a los elementos
-//         combinationColors.forEach((color, index) => {
-//             let squareId = 'J' + (index + 1);
-//             let squareElement = document.getElementById(squareId);
+    // Si se alcanza el número máximo de intentos, mostrar la alerta de ganador y reiniciar todo
+    if (attemptCount >= maxAttempts) {
+        alert("Has alcanzado el número máximo de intentos.");
+        resetGame();
+        return;
+    }
 
+    // Comprobar si todos los colores son blancos (esto es, están en el índice 0 del array de colores)
+    const allColorsWhite = colorArray.every(color => color === 0);
 
-//             if (squareElement) {
-//                 squareElement.style.backgroundColor = color;
-                
-//             }
-            
-//         });
-        
-//         //return color;
-//     }
-    
-// });
-//console.log(squareElement);
-// let combinacionInicial = squareElement;
-// console.log(combinacionInicial);
+    if (allColorsWhite) {
+        alert("Ganaste!");
+        resetGame();
+    } else {
+        alert("No has ganado! Intenta nuevamente.");
+    }
 
+    // Actualizar el fondo de los elementos con la clase "squareCheckIn" según el número de coincidencias
+    const squareCheckInElements = document.getElementsByClassName("squareCheckIn");
+    for (let i = 0; i < squareCheckInElements.length; i++) {
+        if (i < colorArray.length) {
+            squareCheckInElements[i].style.backgroundColor = colorArray[i] === randomDivsArray[i] ? "white" : "";
+        } else {
+            squareCheckInElements[i].style.backgroundColor = ""; // Restaurar el color original
+        }
+    }
 
-
-
-
-
-
-
-
-// function getBackgroundColor(element) {
-   
-//     let color = element.style.backgroundColor;
-    
-//     if (!color) {
-//        if (window.getComputedStyle) {
-//          color = window.getComputedStyle(element).backgroundColor;
-//        } else if (element.currentStyle) {
-//          color = element.currentStyle.backgroundColor;
-//        }
-//     }
-//     //console.log("el codigo hasta aquí no se para porque muestra esto")
-//     return color;
-//    }
-   
-//    function changeBackgroundColor(elements, color) {
-//     for (let i = 0; i < elements.length; i++) {
-//         elements[i].style.backgroundColor = color;
-//         console.log(elements.lenght);
-//     }
-//    }
-   
-//    function handleClick(event) {
-//     let sourceElement = event.currentTarget;
-//     let destinationElements = document.getElementsByClassName("squarePlay");
-   
-//     let sourceColor = getBackgroundColor(sourceElement);
-//     changeBackgroundColor(destinationElements, sourceColor);
-//    }
-   
-//    // asociar la función handleClick al evento click del elemento con id sourceElement
-//    let squareColors = document.getElementsByClassName("squareColors");
-//    for (let i = 0; i < squareColors.length; i++) {
-//        squareColors[i].addEventListener("click", handleClick);
+    // Actualizar el contador de intentos en el HTML
+    const attemptCounterElement = document.getElementsByClassName("attemptCounter")[0];
+    attemptCounterElement.textContent = `Intentos restantes: ${maxAttempts - attemptCount}`;
+}

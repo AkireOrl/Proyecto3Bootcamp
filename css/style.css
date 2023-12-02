@@ -230,3 +230,10 @@
 .gameButton {
   cursor: pointer;
 }
+
+.attemptCounter {
+  font-family: 'Nabla', sans-serif !important;
+  font-size: 1.5em !important;
+  margin-top: 1.2em;
+
+}
