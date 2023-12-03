@@ -50,7 +50,7 @@
 }
 
 .logo {
-  font-size: 5em;
+  font-size: 3em;
   font-family: 'Nabla', sans-serif;
 }
 
@@ -172,6 +172,7 @@
   width: 6em;
   height: 6em;
   border: 0.2em solid white;
+  background-color: #f0f0f0;
   @media (max-width: 768px) {
     width: 3em;
     height: 3em;
