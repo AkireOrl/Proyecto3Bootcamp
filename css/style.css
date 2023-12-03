@@ -89,7 +89,7 @@
   overflow-y: hidden;
 
   @media (min-width: 768px) {
-    font-size: 2em !important;
+    font-size: 1em !important;
   }
 }
 
@@ -127,7 +127,7 @@
   font-family: 'Nabla', sans-serif;
 
   @media (min-width: 768px) {
-    font-size: 2em !important;
+    font-size: 1.3em !important;
   }
 }
 
@@ -166,18 +166,22 @@
 .titulo {
   font-family: 'Nabla', sans-serif !important;
   font-size: 1.5em !important;
-  margin-top: 2em;
+  margin-top: 0.5em;
 }
 .square{
   width: 6em;
   height: 6em;
   border: 0.2em solid white;
+  @media (max-width: 768px) {
+    width: 3em;
+    height: 3em;
+  }
 }
 
 /*Pagina Juego*/
 
-#coloresElegidos {
-  margin-top: 5%;
+.coloresbody {
+  overflow-x: hidden!important;
 }
 
 .colors{
@@ -215,9 +219,6 @@
   align-items: center;
 }
 
-/* .squareCheck{
-
-} */
 .squareCheckIn {
   width: 0.3em;
   height: 0.3em;
@@ -225,6 +226,7 @@
   border: 1px solid white;
   top: 0.2em;
   bottom: 0.2em;
+  
 }
 
 .gameButton {
@@ -253,4 +255,9 @@
 .logo3 {
   font-size: 5em;
   font-family: 'Nabla', sans-serif;
+}
+.ayudaPa {
+  border: solid 1px #FFD214;
+  padding: 15px;
+  border-radius: 20px;
 }
