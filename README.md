@@ -1,13 +1,5 @@
 # Juego Mastermind
 
-### Tabla de contenidos 
-
-- ¿Qué es?
-- Desarrollo y tecnologías usadas
-- ¿Cómo jugar?
-- Errores conocidos 
-- Créditos y Licencia
-
  
 *Puedes ver el proyecto* [*aquí.*](https://akireorl.github.io/Proyecto3Bootcamp/)
 
