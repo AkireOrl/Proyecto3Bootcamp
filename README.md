@@ -19,7 +19,7 @@
 
 El siguiente proyecto se trata de una versión online del juego de mesa Mastermind, creado en un ámbito educativo para GeeksHubs Academy. 
 
-![image](./img/MM-inicio.png)
+![image](./img/MM-Inicio.png)
 
 ---
 ### Desarrollo
